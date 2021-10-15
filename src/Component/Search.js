@@ -14,8 +14,6 @@ function Search({ data, setData }) {
 
   useEffect(() => {
     const searchHandler = () => {
-      console.log(userInput, "user");
-
       const result = data.filter((country) =>
         country.name.toLowerCase().includes(userInput.userInput)
       );
