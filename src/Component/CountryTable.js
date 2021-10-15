@@ -15,7 +15,9 @@ const columns = [
     id: "flag",
     label: "Flag",
     minWidth: 170,
-    format: (value) => <img src={value} width="70" height="70" alt="error" />,
+    format: (value) => (
+      <img src={value} width="70px" height="70px" alt="error" />
+    ),
   },
   { id: "name", label: "Name", minWidth: 100 },
   {

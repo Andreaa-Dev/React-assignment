@@ -3,7 +3,7 @@ import TableCell from "@mui/material/TableCell";
 
 function CountryTableRow({ column, value }) {
   return (
-    <TableCell key={column.id} align={column.align}>
+    <TableCell key={column.id}>
       {column.format ? column.format(value) : value}
     </TableCell>
   );

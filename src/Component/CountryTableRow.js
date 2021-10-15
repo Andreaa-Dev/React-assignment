@@ -1,6 +1,7 @@
 import React from "react";
 import CountryTableCell from "./CountryTableCell";
 import { TableRow } from "@mui/material";
+import TableCell from "@mui/material/TableCell";
 
 function CountryTableRow({ data, columns, rowsPerPage, page }) {
   return (
