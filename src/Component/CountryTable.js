@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableContainer from "@mui/material/TableContainer";
@@ -6,15 +6,16 @@ import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 
 import CountryTableHead from "./CountryTableHead";
-import CountryTableCell from "./CountryTableCell";
+import CountryTableRow from "./CountryTableRow";
 import CountryTablePagination from "./CountryTablePagination";
+import { TableBody } from "@mui/material";
 
 const columns = [
   {
     id: "flag",
     label: "Flag",
     minWidth: 170,
-    format: (value) => <img src={value} width="50" height="50" alt="error" />,
+    format: (value) => <img src={value} width="70" height="70" alt="error" />,
   },
   { id: "name", label: "Name", minWidth: 100 },
   {
@@ -49,21 +50,22 @@ function CountryTable({ data }) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = useCallback((event, newPage) => {
     setPage(newPage);
-  };
+  }, []);
 
-  const handleChangeRowsPerPage = (event) => {
+  const handleChangeRowsPerPage = useCallback((event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
-  };
+  }, []);
+
   return (
-    <div>
-      <Paper sx={{ width: "100%" }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
-          <Table stickyHeader aria-label="sticky table">
-            <CountryTableHead columns={columns} />
-            <CountryTableCell
+    <Paper sx={{ width: "100%", overflow: "hidden" }}>
+      <TableContainer sx={{ maxHeight: 700 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <CountryTableHead columns={columns} />
+          <TableBody>
+            <CountryTableRow
               data={data}
               columns={columns}
               rowsPerPage={rowsPerPage}
@@ -71,15 +73,15 @@ function CountryTable({ data }) {
               handleChangePage={handleChangePage}
               handleChangeRowsPerPage={handleChangeRowsPerPage}
             />
-          </Table>
-          <CountryTablePagination
-            data={data}
-            rowsPerPage={rowsPerPage}
-            page={page}
-          />
-        </TableContainer>
-      </Paper>
-    </div>
+          </TableBody>
+        </Table>
+        <CountryTablePagination
+          data={data}
+          rowsPerPage={rowsPerPage}
+          page={page}
+        />
+      </TableContainer>
+    </Paper>
   );
 }
 

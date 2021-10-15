@@ -6,7 +6,7 @@ import TableCell from "@mui/material/TableCell";
 function CountryTableHead({ columns }) {
   return (
     <div>
-      <TableHead>
+      <TableHead sx={{ minWidth: "100%" }}>
         <TableRow back>
           <TableCell align="center" colSpan={2}>
             Country
@@ -20,7 +20,7 @@ function CountryTableHead({ columns }) {
             <TableCell
               key={column.id}
               align={column.align}
-              style={{ top: 57, minWidth: column.minWidth }}
+              style={{ top: 57, minWidth: "100%" }}
             >
               {column.label}
             </TableCell>

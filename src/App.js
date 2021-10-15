@@ -9,10 +9,10 @@ function App() {
   const [data, setData] = useCountry(url);
 
   return (
-    <div>
+    <>
       <Search data={data} setData={setData} />
       <CountryTable data={data} />;
-    </div>
+    </>
   );
 }
 
