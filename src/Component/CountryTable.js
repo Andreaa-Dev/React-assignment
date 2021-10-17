@@ -4,6 +4,7 @@ import Table from "@mui/material/Table";
 import TableContainer from "@mui/material/TableContainer";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
+import CircleIcon from "@mui/icons-material/Circle";
 
 import CountryTableHead from "./CountryTableHead";
 import CountryTableRow from "./CountryTableRow";
@@ -35,7 +36,10 @@ const columns = [
     format: (value) => (
       <List>
         {value.map((item) => (
-          <ListItemText> {item.name}</ListItemText>
+          <ListItemText>
+            <CircleIcon sx={{ fontSize: 10 }} />
+            {item.name}
+          </ListItemText>
         ))}
       </List>
     ),

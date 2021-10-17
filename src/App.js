@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Search data={data} setData={setData} />
-      <CountryTable data={data} />;
+      <CountryTable data={data} />
     </>
   );
 }
