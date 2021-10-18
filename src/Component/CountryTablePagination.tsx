@@ -4,7 +4,12 @@ import { CountryType } from "../CustomHook/useCountry";
 
 type PropsType = {
   data: CountryType[];
+  rowsPerPage: number;
+  page: number;
+  handleChangePage: (newPage: number) => void;
+  handleChangeRowsPerPage;
 };
+
 function CountryTablePagination({
   data,
   rowsPerPage,

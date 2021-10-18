@@ -13,7 +13,6 @@ import { TableBody } from "@mui/material";
 import { CountryType } from "../CustomHook/useCountry";
 
 // Note: by default type: require, optional => add ?
-
 export type ColumnType = [
   {
     id: string;
@@ -72,7 +71,7 @@ function CountryTable({ data }: PropsType) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const handleChangePage = useCallback((event, newPage) => {
+  const handleChangePage = useCallback((newPage: number) => {
     setPage(newPage);
   }, []);
 
@@ -92,8 +91,6 @@ function CountryTable({ data }: PropsType) {
               columns={columns}
               rowsPerPage={rowsPerPage}
               page={page}
-              handleChangePage={handleChangePage}
-              handleChangeRowsPerPage={handleChangeRowsPerPage}
             />
           </TableBody>
         </Table>
@@ -101,6 +98,8 @@ function CountryTable({ data }: PropsType) {
           data={data}
           rowsPerPage={rowsPerPage}
           page={page}
+          handleChangePage={handleChangePage}
+          handleChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </TableContainer>
     </Paper>

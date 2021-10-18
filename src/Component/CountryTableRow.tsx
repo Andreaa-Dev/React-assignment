@@ -8,7 +8,7 @@ import { ColumnType } from "./CountryTable";
 const PropsType = {
   data: CountryType[];
   columns: ColumnType;
-  //   rowsPerPage: ;
+    rowsPerPage: ;
   //    page: ;
 
 }
