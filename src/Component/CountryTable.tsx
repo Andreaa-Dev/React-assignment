@@ -10,13 +10,26 @@ import CountryTableHead from "./CountryTableHead";
 import CountryTableRow from "./CountryTableRow";
 import CountryTablePagination from "./CountryTablePagination";
 import { TableBody } from "@mui/material";
+import { CountryType } from "../CustomHook/useCountry";
+
+// Note: by default type: require, optional => add ?
+
+export type ColumnType = [
+  {
+    id: string;
+    label: string;
+    format?: (value: string) => JSX.Element;
+    minWidth?: number;
+    align?: string;
+  }
+];
 
 const columns = [
   {
     id: "flag",
     label: "Flag",
     minWidth: 170,
-    format: (value) => (
+    format: (value: string) => (
       <img src={value} width="70px" height="70px" alt="error" />
     ),
   },
@@ -26,16 +39,15 @@ const columns = [
     label: "Population",
     minWidth: 170,
     align: "right",
-    format: (value) => value.toLocaleString("en-US"),
   },
   {
     id: "languages",
     label: "Languages",
     minWidth: 170,
     align: "right",
-    format: (value) => (
+    format: (value: []) => (
       <List>
-        {value.map((item) => (
+        {value.map((item: any) => (
           <ListItemText>
             <CircleIcon sx={{ fontSize: 10 }} />
             {item.name}
@@ -52,7 +64,11 @@ const columns = [
   },
 ];
 
-function CountryTable({ data }) {
+type PropsType = {
+  data: CountryType[];
+};
+
+function CountryTable({ data }: PropsType) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 

@@ -1,8 +1,18 @@
 import React from "react";
 import CountryTableCell from "./CountryTableCell";
-import { TableRow } from "@mui/material";
+import { PropTypes, TableRow } from "@mui/material";
+import { CountryType } from "../CustomHook/useCountry";
+import { ColumnType } from "./CountryTable";
 
-function CountryTableRow({ data, columns, rowsPerPage, page }) {
+
+const PropsType = {
+  data: CountryType[];
+  columns: ColumnType;
+  //   rowsPerPage: ;
+  //    page: ;
+
+}
+function CountryTableRow({ data, columns, rowsPerPage, page }:PropTypes) {
   return (
     <>
       {data

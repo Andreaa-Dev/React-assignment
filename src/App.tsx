@@ -5,8 +5,9 @@ import Search from "./Component/Search";
 import useCountry from "./CustomHook/useCountry";
 
 function App() {
-  const url = "https://restcountries.com/v2/all";
+  const url = "https://restcountries-v2.herokuapp.com/all";
   const [data, setData] = useCountry(url);
+  console.log(data, "data");
 
   return (
     <>

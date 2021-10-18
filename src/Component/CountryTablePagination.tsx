@@ -1,13 +1,17 @@
 import React from "react";
 import { TablePagination } from "@mui/material";
+import { CountryType } from "../CustomHook/useCountry";
 
+type PropsType = {
+  data: CountryType[];
+};
 function CountryTablePagination({
   data,
   rowsPerPage,
   page,
   handleChangePage,
   handleChangeRowsPerPage,
-}) {
+}: PropsType) {
   return (
     <div>
       <TablePagination
