@@ -4,10 +4,14 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import { useTheme } from "@mui/material/styles";
 import { theme } from "../index";
+import { ColumnType } from "../Component/CountryTable";
 
-function CountryTableHead({ columns }) {
+type PropType = {
+  columns: ColumnType[];
+};
+
+function CountryTableHead({ columns }: PropType) {
   const myTheme = useTheme(theme);
-  console.log(myTheme, "theme");
   return (
     <TableHead
       sx={{ minWidth: "100%", bgcolor: myTheme.palette.background.paper }}

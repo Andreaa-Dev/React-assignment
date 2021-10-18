@@ -1,18 +1,17 @@
 import React from "react";
 import CountryTableCell from "./CountryTableCell";
-import { PropTypes, TableRow } from "@mui/material";
+import { TableRow } from "@mui/material";
 import { CountryType } from "../CustomHook/useCountry";
 import { ColumnType } from "./CountryTable";
 
-
-const PropsType = {
+type PropType = {
   data: CountryType[];
-  columns: ColumnType;
-    rowsPerPage: ;
-  //    page: ;
+  columns: ColumnType[];
+  rowsPerPage: number;
+  page: number;
+};
 
-}
-function CountryTableRow({ data, columns, rowsPerPage, page }:PropTypes) {
+function CountryTableRow({ data, columns, rowsPerPage, page }: PropType) {
   return (
     <>
       {data
@@ -20,7 +19,7 @@ function CountryTableRow({ data, columns, rowsPerPage, page }:PropTypes) {
         .map((row) => {
           return (
             <TableRow hover role="checkbox" tabIndex={-1}>
-              {columns.map((column) => {
+              {columns.map((column: any) => {
                 const value = row[column.id];
                 return <CountryTableCell value={value} column={column} />;
               })}

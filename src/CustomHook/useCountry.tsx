@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-type LanguageType = {
+export type LanguageType = {
   name: string;
 };
 

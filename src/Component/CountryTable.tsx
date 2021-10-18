@@ -11,25 +11,26 @@ import CountryTableRow from "./CountryTableRow";
 import CountryTablePagination from "./CountryTablePagination";
 import { TableBody } from "@mui/material";
 import { CountryType } from "../CustomHook/useCountry";
+import { LanguageType } from "../CustomHook/useCountry";
 
 // Note: by default type: require, optional => add ?
-export type ColumnType = [
-  {
-    id: string;
-    label: string;
-    format?: (value: string) => JSX.Element;
-    minWidth?: number;
-    align?: string;
-  }
-];
+// align?: string is okay, right is better
+export type ColumnType = {
+  id: string;
+  label: string;
+  format?: (value: string | LanguageType[]) => JSX.Element;
+  minWidth?: number;
+  align?: string;
+};
 
-const columns = [
+// type of section
+const columns: ColumnType[] = [
   {
     id: "flag",
     label: "Flag",
     minWidth: 170,
-    format: (value: string) => (
-      <img src={value} width="70px" height="70px" alt="error" />
+    format: (value) => (
+      <img src={value as string} width="70px" height="70px" alt="error" />
     ),
   },
   { id: "name", label: "Name", minWidth: 100 },
@@ -44,9 +45,9 @@ const columns = [
     label: "Languages",
     minWidth: 170,
     align: "right",
-    format: (value: []) => (
+    format: (value) => (
       <List>
-        {value.map((item: any) => (
+        {(value as LanguageType[]).map((item: any) => (
           <ListItemText>
             <CircleIcon sx={{ fontSize: 10 }} />
             {item.name}
@@ -63,11 +64,11 @@ const columns = [
   },
 ];
 
-type PropsType = {
+type PropType = {
   data: CountryType[];
 };
 
-function CountryTable({ data }: PropsType) {
+function CountryTable({ data }: PropType) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -75,10 +76,13 @@ function CountryTable({ data }: PropsType) {
     setPage(newPage);
   }, []);
 
-  const handleChangeRowsPerPage = useCallback((event) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  }, []);
+  const handleChangeRowsPerPage = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setRowsPerPage(+event.target.value);
+      setPage(0);
+    },
+    []
+  );
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>

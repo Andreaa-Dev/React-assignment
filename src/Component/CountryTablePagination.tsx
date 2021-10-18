@@ -2,12 +2,13 @@ import React from "react";
 import { TablePagination } from "@mui/material";
 import { CountryType } from "../CustomHook/useCountry";
 
+// Tips: hover to handleChangePage to see the type.
 type PropsType = {
   data: CountryType[];
   rowsPerPage: number;
   page: number;
   handleChangePage: (newPage: number) => void;
-  handleChangeRowsPerPage;
+  handleChangeRowsPerPage: (event: any) => void;
 };
 
 function CountryTablePagination({
