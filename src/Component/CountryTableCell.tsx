@@ -3,13 +3,13 @@ import TableCell from "@mui/material/TableCell";
 import { ColumnType } from "../Component/CountryTable";
 
 type PropTypes = {
-  columns: any;
+  column: ColumnType;
   value: any;
 };
-function CountryTableRow({ columns, value }: PropTypes) {
+function CountryTableRow({ column, value }: PropTypes) {
   return (
-    <TableCell key={columns.id}>
-      {columns.format ? columns.format(value) : value}
+    <TableCell key={column.id}>
+      {column.format ? column.format(value) : value}
     </TableCell>
   );
 }

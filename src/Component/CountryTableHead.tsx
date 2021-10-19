@@ -10,8 +10,9 @@ type PropType = {
   columns: ColumnType[];
 };
 
+// Note: no need to add theme props - new update
 function CountryTableHead({ columns }: PropType) {
-  const myTheme = useTheme(theme);
+  const myTheme = useTheme();
   return (
     <TableHead
       sx={{ minWidth: "100%", bgcolor: myTheme.palette.background.paper }}

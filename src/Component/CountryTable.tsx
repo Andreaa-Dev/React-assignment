@@ -15,8 +15,9 @@ import { LanguageType } from "../CustomHook/useCountry";
 
 // Note: by default type: require, optional => add ?
 // align?: string is okay, right is better
+// id: cant be string
 export type ColumnType = {
-  id: string;
+  id: "flag" | "name" | "population" | "languages" | "region";
   label: string;
   format?: (value: string | LanguageType[]) => JSX.Element;
   minWidth?: number;

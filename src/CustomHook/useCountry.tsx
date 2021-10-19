@@ -17,6 +17,7 @@ type UseCountryType = [
   setData: React.Dispatch<React.SetStateAction<any[]>>
 ];
 
+// if add a new state foe error, type of error: unknown
 function useCountry(url: string): UseCountryType {
   const [data, setData] = useState<CountryType[]>([]);
   async function fetchData() {

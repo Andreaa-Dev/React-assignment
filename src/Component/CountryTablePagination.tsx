@@ -7,7 +7,7 @@ type PropsType = {
   data: CountryType[];
   rowsPerPage: number;
   page: number;
-  handleChangePage: (newPage: number) => void;
+  handleChangePage: (newPage: any) => void;
   handleChangeRowsPerPage: (event: any) => void;
 };
 

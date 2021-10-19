@@ -5,7 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { ThemeProvider } from "@mui/system";
-import { createTheme } from "@mui/material/styles";
+import { createTheme, Theme } from "@mui/material/styles";
+
+// type of MUI - intersection type
+export type ThemeType = Theme & {
+  palette: {
+    background: {
+      paper: string;
+    };
+  };
+};
 
 export const theme = createTheme({
   palette: {

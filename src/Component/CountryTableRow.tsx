@@ -19,7 +19,7 @@ function CountryTableRow({ data, columns, rowsPerPage, page }: PropType) {
         .map((row) => {
           return (
             <TableRow hover role="checkbox" tabIndex={-1}>
-              {columns.map((column: any) => {
+              {columns.map((column) => {
                 const value = row[column.id];
                 return <CountryTableCell value={value} column={column} />;
               })}

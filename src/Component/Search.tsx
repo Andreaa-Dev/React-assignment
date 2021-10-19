@@ -4,8 +4,10 @@ import Country from "./CountryTable";
 import { TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { display, spacing } from "@mui/system";
+import { ThemeType } from "../index";
+import { CountryType } from "../CustomHook/useCountry";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: ThemeType) => ({
   root: {
     display: "flex",
     backgroundColor: theme.palette.primary.main,
@@ -15,15 +17,29 @@ const useStyles = makeStyles((theme) => ({
 }));
 console.log(useStyles, "styles");
 
-function Search({ data, setData }) {
+type UserInputType = {
+  userInput: string;
+};
+
+type PropType = {
+  data: CountryType[];
+  setData: React.Dispatch<React.SetStateAction<any[]>>;
+};
+
+function Search({ data, setData }: PropType) {
   const classes = useStyles();
 
-  const [userInput, setUserInput] = useState("");
+  const [userInput, setUserInput] = useState<UserInputType>({ userInput: "" });
 
-  const formHandler = (event) => {
+  // Note: build in event React.FormEvent<HTMLFormElement>
+  // element as HTMLInputElement
+  // const element = event.target as Element;
+  // event.target.value => (element as HTMLInputElement).value
+  const formHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    const element = event.target as Element;
     setUserInput({
       ...userInput,
-      [event.target.id]: event.target.value,
+      [element.id]: (element as HTMLInputElement).value,
     });
   };
 
