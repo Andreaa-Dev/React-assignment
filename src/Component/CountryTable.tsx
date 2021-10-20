@@ -15,13 +15,13 @@ import { LanguageType } from "../CustomHook/useCountry";
 
 // Note: by default type: require, optional => add ?
 // align?: string is okay, right is better
-// id: cant be string
+// id: cant be string, only by exactly name.
 export type ColumnType = {
   id: "flag" | "name" | "population" | "languages" | "region";
   label: string;
   format?: (value: string | LanguageType[]) => JSX.Element;
   minWidth?: number;
-  align?: string;
+  align?: "right";
 };
 
 // type of section
@@ -31,7 +31,7 @@ const columns: ColumnType[] = [
     label: "Flag",
     minWidth: 170,
     format: (value) => (
-      <img src={value as string} width="70px" height="70px" alt="error" />
+      <img src={value as string} width="80px" height="50px" alt="error" />
     ),
   },
   { id: "name", label: "Name", minWidth: 100 },
@@ -50,7 +50,7 @@ const columns: ColumnType[] = [
       <List>
         {(value as LanguageType[]).map((item: any) => (
           <ListItemText>
-            <CircleIcon sx={{ fontSize: 10 }} />
+            <CircleIcon sx={{ fontSize: 10, marginRight: 1 }} />
             {item.name}
           </ListItemText>
         ))}

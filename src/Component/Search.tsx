@@ -13,6 +13,8 @@ const useStyles = makeStyles((theme: ThemeType) => ({
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
     margin: theme.spacing(1),
+    padding: 1,
+    width: 250,
   },
 }));
 console.log(useStyles, "styles");

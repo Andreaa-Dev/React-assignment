@@ -1,19 +1,28 @@
 import React from "react";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 
 import CountryTable from "./Component/CountryTable";
 import Search from "./Component/Search";
 import useCountry from "./CustomHook/useCountry";
+import NavBar from "./Component/NavBar";
+import LandingPage from "./Component/LandingPage/LandingPage";
 
 function App() {
   const url = "https://restcountries-v2.herokuapp.com/all";
   const [data, setData] = useCountry(url);
-  console.log(data, "data");
-
   return (
-    <>
-      <Search data={data} setData={setData} />
-      <CountryTable data={data} />
-    </>
+    <div>
+      <NavBar />
+      <Switch>
+        <Route exact path="/home">
+          <LandingPage />
+        </Route>
+        <Route exact path="/countries">
+          <Search data={data} setData={setData} />
+          <CountryTable data={data} />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
