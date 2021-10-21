@@ -1,6 +1,6 @@
 import React from "react";
 import { TablePagination } from "@mui/material";
-import { CountryType } from "../CustomHook/useCountry";
+import { CountryType } from "../../CustomHook/useCountry";
 
 // Tips: hover to handleChangePage to see the type.
 type PropsType = {

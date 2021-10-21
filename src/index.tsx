@@ -13,6 +13,7 @@ export type ThemeType = Theme & {
   palette: {
     background: {
       paper: string;
+      // night: string;
     };
   };
 };
@@ -20,10 +21,12 @@ export type ThemeType = Theme & {
 export const theme = createTheme({
   palette: {
     background: {
-      paper: "#bbdefb",
+      paper: "#FBFBFB",
+      // night: "#FBFBFB",
     },
   },
 });
+console.log(theme, "theme");
 
 ReactDOM.render(
   <React.StrictMode>

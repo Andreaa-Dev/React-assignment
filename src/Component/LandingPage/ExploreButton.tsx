@@ -43,9 +43,14 @@ const BootstrapButton = styled(Button)({
 
 export default function CustomizedButtons() {
   return (
-    <Stack spacing={2} direction="row">
+    <Stack spacing={2} direction="row" marginTop="20px">
       <BootstrapButton variant="contained" disableRipple>
-        <Link to="/countries"> EXPLORE</Link>
+        <Link
+          to="/countries"
+          style={{ color: "white", textDecoration: "none" }}
+        >
+          EXPLORE
+        </Link>
       </BootstrapButton>
     </Stack>
   );

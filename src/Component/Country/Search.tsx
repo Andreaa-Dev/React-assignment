@@ -3,13 +3,12 @@ import Country from "./CountryTable";
 
 import { TextField } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-import { display, spacing } from "@mui/system";
-import { ThemeType } from "../index";
-import { CountryType } from "../CustomHook/useCountry";
+import { Box, display, spacing } from "@mui/system";
+import { ThemeType } from "../../index";
+import { CountryType } from "../../CustomHook/useCountry";
 
 const useStyles = makeStyles((theme: ThemeType) => ({
   root: {
-    display: "flex",
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
     margin: theme.spacing(1),
@@ -17,7 +16,6 @@ const useStyles = makeStyles((theme: ThemeType) => ({
     width: 250,
   },
 }));
-console.log(useStyles, "styles");
 
 type UserInputType = {
   userInput: string;
@@ -57,11 +55,11 @@ function Search({ data, setData }: PropType) {
   }, [userInput]);
 
   return (
-    <div className={classes.root}>
+    <Box className={classes.root}>
       <form onChange={formHandler}>
         <TextField id="userInput" label="Search" variant="standard" />
       </form>
-    </div>
+    </Box>
   );
 }
 

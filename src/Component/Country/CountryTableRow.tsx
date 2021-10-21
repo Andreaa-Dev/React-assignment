@@ -1,7 +1,7 @@
 import React from "react";
 import CountryTableCell from "./CountryTableCell";
 import { TableRow } from "@mui/material";
-import { CountryType } from "../CustomHook/useCountry";
+import { CountryType } from "../../CustomHook/useCountry";
 import { ColumnType } from "./CountryTable";
 
 type PropType = {

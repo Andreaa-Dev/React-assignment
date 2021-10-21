@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Switch, Route } from "react-router-dom";
 
-import CountryTable from "./Component/CountryTable";
-import Search from "./Component/Search";
+import CountryTable from "./Component/Country/CountryTable";
+import Search from "./Component/Country/Search";
 import useCountry from "./CustomHook/useCountry";
 import NavBar from "./Component/NavBar";
 import LandingPage from "./Component/LandingPage/LandingPage";

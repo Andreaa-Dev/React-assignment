@@ -10,6 +10,7 @@ export type CountryType = {
   population: number;
   languages: LanguageType[];
   region: string;
+  border: number;
 };
 
 type UseCountryType = [

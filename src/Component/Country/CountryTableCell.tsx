@@ -1,6 +1,6 @@
 import React from "react";
 import TableCell from "@mui/material/TableCell";
-import { ColumnType } from "../Component/CountryTable";
+import { ColumnType } from "../Country/CountryTable";
 
 type PropTypes = {
   column: ColumnType;

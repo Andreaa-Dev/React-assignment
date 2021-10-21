@@ -8,20 +8,21 @@ import CircleIcon from "@mui/icons-material/Circle";
 
 import CountryTableHead from "./CountryTableHead";
 import CountryTableRow from "./CountryTableRow";
-import CountryTablePagination from "./CountryTablePagination";
+import CountryTablePagination from "../Country/CountryTablePagination";
 import { TableBody } from "@mui/material";
-import { CountryType } from "../CustomHook/useCountry";
-import { LanguageType } from "../CustomHook/useCountry";
+import { CountryType } from "../../CustomHook/useCountry";
+import { LanguageType } from "../../CustomHook/useCountry";
+import More from "./More";
 
 // Note: by default type: require, optional => add ?
 // align?: string is okay, right is better
 // id: cant be string, only by exactly name.
 export type ColumnType = {
-  id: "flag" | "name" | "population" | "languages" | "region";
+  id: "flag" | "name" | "population" | "languages" | "region" | "border";
   label: string;
   format?: (value: string | LanguageType[]) => JSX.Element;
   minWidth?: number;
-  align?: "right";
+  align?: string;
 };
 
 // type of section
@@ -62,6 +63,13 @@ const columns: ColumnType[] = [
     label: "Region",
     minWidth: 170,
     align: "right",
+  },
+  {
+    id: "border",
+    label: "More",
+    minWidth: 170,
+    align: "right",
+    format: (value) => <More />,
   },
 ];
 
