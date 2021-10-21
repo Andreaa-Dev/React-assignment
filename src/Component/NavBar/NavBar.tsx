@@ -7,15 +7,11 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import HomeIcon from "@mui/icons-material/Home";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import PublicIcon from "@mui/icons-material/Public";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
+import ChangeTheme from "./ChangeTheme";
 
 export default function NavBar() {
   const menuId = "primary-search-account-menu";
@@ -77,7 +73,7 @@ export default function NavBar() {
                 <FavoriteIcon />
               </Badge>
             </IconButton>
-            <IconButton
+            {/* <IconButton
               size="large"
               edge="end"
               aria-label="account of current user"
@@ -87,7 +83,8 @@ export default function NavBar() {
               color="inherit"
             >
               <Brightness4Icon />
-            </IconButton>
+            </IconButton> */}
+            <ChangeTheme />
           </Box>
         </Toolbar>
       </AppBar>

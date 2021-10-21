@@ -64,9 +64,10 @@ const columns: ColumnType[] = [
     minWidth: 170,
     align: "right",
   },
+
   {
     id: "border",
-    label: "More",
+    label: "",
     minWidth: 170,
     align: "right",
     format: (value) => <More />,

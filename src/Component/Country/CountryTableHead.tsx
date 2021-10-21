@@ -3,9 +3,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import { useTheme } from "@mui/material/styles";
-import { theme } from "../../index";
 import { ColumnType } from "./CountryTable";
-import Typography from "@mui/material/Typography";
 
 type PropType = {
   columns: ColumnType[];

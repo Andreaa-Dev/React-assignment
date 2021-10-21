@@ -4,7 +4,7 @@ import { BrowserRouter as Switch, Route } from "react-router-dom";
 import CountryTable from "./Component/Country/CountryTable";
 import Search from "./Component/Country/Search";
 import useCountry from "./CustomHook/useCountry";
-import NavBar from "./Component/NavBar";
+import NavBar from "./Component/NavBar/NavBar";
 import LandingPage from "./Component/LandingPage/LandingPage";
 
 function App() {
